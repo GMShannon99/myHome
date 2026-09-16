@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>myHome</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand">myHome</div>
+  <nav>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <button class="nav-link" aria-haspopup="true" aria-expanded="false">myFlipBooks</button>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-key="art-books" data-url="https://gmshannon99.github.io/GilsArtBooks-Web/">My Art Books</a></li>
+          <li><a href="#" data-key="bw-book" data-url="https://gmshannon99.github.io/MySelectMenu/">Old BW Book</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" aria-haspopup="true" aria-expanded="false">Jes Sie</button>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-key="jes-sie" data-url="https://gmshannon99.github.io/oneshot-flipbook/">Jes Sie Flip Art Book</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" aria-haspopup="true" aria-expanded="false">Games</button>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-key="sudoku" data-url="https://gmshannon99.github.io/sudoku-web/">Sudoku by Gil</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<button id="close-btn" title="Exit" aria-label="Exit">&times;</button>
+<div id="exit-message" hidden>Please close this browser tab to exit.</div>
+
+<main id="content-area">
+  <div id="welcome-screen">
+    <h1>Welcome to myHome</h1>
+    <p>Pick something from the menu above to get started.</p>
+  </div>
+  <!-- Content iframes are created here on demand by script.js -->
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

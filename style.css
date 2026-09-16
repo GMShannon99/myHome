@@ -1,0 +1,192 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+/* ---------- Nav bar ---------- */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #1f2937;
+  color: #fff;
+  padding: 0 1.5rem;
+  height: 56px;
+  position: relative;
+  z-index: 100;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.nav-link:hover,
+.nav-item.open .nav-link {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  color: #222;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: none;
+  overflow: hidden;
+}
+
+/* Hover works for desktop/mouse users; the .open class (toggled in
+   script.js) makes the same menus work with a tap on touch devices. */
+.nav-item:hover .dropdown-menu,
+.nav-item.open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #222;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f2f5;
+}
+
+/* ---------- Close button ---------- */
+
+#close-btn {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 200;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#close-btn:hover {
+  background: #b91c1c;
+}
+
+#exit-message {
+  position: fixed;
+  top: 56px;
+  right: 16px;
+  z-index: 200;
+  background: #fff3cd;
+  color: #664d03;
+  border: 1px solid #ffe69c;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Content area ---------- */
+
+#content-area {
+  position: relative;
+  height: calc(100vh - 56px);
+  width: 100%;
+}
+
+#welcome-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #555;
+  padding: 1rem;
+}
+
+.content-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+.content-frame.active {
+  display: block;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .navbar {
+    gap: 1rem;
+    padding: 0 0.75rem;
+  }
+
+  .brand {
+    font-size: 1.05rem;
+  }
+
+  .nav-menu {
+    gap: 0.1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-menu {
+    min-width: 180px;
+  }
+}
