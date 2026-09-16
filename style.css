@@ -118,20 +118,6 @@ html, body {
   background: #b91c1c;
 }
 
-#exit-message {
-  position: fixed;
-  top: 56px;
-  right: 16px;
-  z-index: 200;
-  background: #fff3cd;
-  color: #664d03;
-  border: 1px solid #ffe69c;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
 /* ---------- Content area ---------- */
 
 #content-area {
@@ -144,11 +130,46 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   text-align: center;
   color: #555;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem;
+}
+
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 8px;
+  color: #333;
+}
+
+.shortcut:hover,
+.shortcut:focus-visible {
+  background: #f0f2f5;
+}
+
+.shortcut-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.shortcut-label {
+  font-size: 0.9rem;
 }
 
 .content-frame {

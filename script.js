@@ -18,6 +18,7 @@
 const contentArea = document.getElementById('content-area');
 const welcomeScreen = document.getElementById('welcome-screen');
 const iframes = {};
+let activeKey = null;
 
 function showFrame(key, url) {
   welcomeScreen.style.display = 'none';
@@ -34,12 +35,17 @@ function showFrame(key, url) {
   }
 
   iframes[key].classList.add('active');
+  activeKey = key;
 }
 
-document.querySelectorAll('.dropdown-menu a[data-url]').forEach((link) => {
-  link.addEventListener('click', (event) => {
+// Both the nav dropdown links and the welcome-screen shortcut icons carry
+// the same data-key/data-url attributes and share this one click handler,
+// so the icons are just additional entry points into the same
+// showFrame()/iframe-cache logic -- not a separate loading system.
+document.querySelectorAll('[data-url]').forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
     event.preventDefault();
-    showFrame(link.dataset.key, link.dataset.url);
+    showFrame(trigger.dataset.key, trigger.dataset.url);
     closeAllDropdowns();
   });
 });
@@ -74,13 +80,19 @@ navItems.forEach((item) => {
 document.addEventListener('click', closeAllDropdowns);
 
 // ---------------------------------------------------------------------
-// Exit / close button. window.close() only works on windows/tabs that
-// were opened by script, so on a normally-navigated GitHub Pages tab
-// the browser will silently ignore it. We attempt it anyway, then show
-// a fallback message telling the user to close the tab themselves.
+// "X" button: closes whatever is currently loaded in the content area
+// and returns to the welcome screen. It does NOT close the browser tab.
+// The active iframe (even the persistent "My Art Books" one) is only
+// hidden, not removed, so it stays warm in the background per the
+// existing keep-alive behavior -- clicking its shortcut/menu item again
+// will show it instantly rather than reloading it.
+// If nothing is loaded, this is a no-op.
 // ---------------------------------------------------------------------
 
 document.getElementById('close-btn').addEventListener('click', () => {
-  window.close();
-  document.getElementById('exit-message').hidden = false;
+  if (!activeKey) return;
+
+  iframes[activeKey].classList.remove('active');
+  activeKey = null;
+  welcomeScreen.style.display = '';
 });
