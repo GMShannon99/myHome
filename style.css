@@ -95,6 +95,15 @@ html, body {
   background: #f0f2f5;
 }
 
+.dropdown-note {
+  padding: 0.4rem 1rem 0.2rem;
+  margin-top: 0.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #666;
+}
+
 /* ---------- Close button ---------- */
 
 #close-btn {
