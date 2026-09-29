@@ -279,17 +279,4 @@ html, body {
   .shortcut-icon {
     width: 240px;
   }
-
-  /* The nav menu can be wider than the screen on phones, so reaching the
-     last tab (e.g. "Reels") means scrolling the page horizontally. Since
-     #close-btn is position: fixed, it stays pinned to the viewport corner
-     through that scroll and would otherwise end up sitting on top of
-     whichever tab/dropdown scrolls into that corner. Moving it to the
-     bottom corner on small screens keeps it clear of the nav bar and any
-     open dropdown at every scroll position, without changing what it does. */
-  #close-btn {
-    top: auto;
-    bottom: 16px;
-    right: 16px;
-  }
 }
