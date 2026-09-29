@@ -95,15 +95,6 @@ html, body {
   background: #f0f2f5;
 }
 
-.dropdown-note {
-  padding: 0.4rem 1rem 0.2rem;
-  margin-top: 0.2rem;
-  border-top: 1px solid #eee;
-  font-size: 0.8rem;
-  font-style: italic;
-  color: #666;
-}
-
 /* ---------- Close button ---------- */
 
 #close-btn {
@@ -207,9 +198,9 @@ html, body {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 640px) {
-  /* The five tabs are wider than a phone screen, so let the bar wrap
+  /* The tabs can be wider than a phone screen, so let the bar wrap
      onto a second row instead of overflowing the viewport (which used to
-     push "Reels" underneath the fixed red close button). */
+     push the last tab underneath the fixed red close button). */
   body {
     display: flex;
     flex-direction: column;
