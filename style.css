@@ -207,9 +207,52 @@ html, body {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 640px) {
+  /* The five tabs are wider than a phone screen, so let the bar wrap
+     onto a second row instead of overflowing the viewport (which used to
+     push "Reels" underneath the fixed red close button). */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
   .navbar {
-    gap: 1rem;
-    padding: 0 0.75rem;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    padding: 0.4rem 0.75rem;
+    height: auto;
+    min-height: 56px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .nav-item {
+    height: 44px;
+  }
+
+  #content-area {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+
+  /* Keep the close button clear of the nav bar: bottom-right corner. */
+  #close-btn {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  /* Anchor dropdowns to the (wrapped) bar so they always stay on screen. */
+  .nav-item {
+    position: static;
+  }
+
+  .dropdown-menu {
+    left: 0.75rem;
+    max-width: calc(100vw - 1.5rem);
   }
 
   .brand {
@@ -235,5 +278,18 @@ html, body {
 
   .shortcut-icon {
     width: 240px;
+  }
+
+  /* The nav menu can be wider than the screen on phones, so reaching the
+     last tab (e.g. "Reels") means scrolling the page horizontally. Since
+     #close-btn is position: fixed, it stays pinned to the viewport corner
+     through that scroll and would otherwise end up sitting on top of
+     whichever tab/dropdown scrolls into that corner. Moving it to the
+     bottom corner on small screens keeps it clear of the nav bar and any
+     open dropdown at every scroll position, without changing what it does. */
+  #close-btn {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
   }
 }
