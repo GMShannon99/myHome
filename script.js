@@ -79,6 +79,10 @@ navItems.forEach((item) => {
 
 document.addEventListener('click', closeAllDropdowns);
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeAllDropdowns();
+});
+
 // ---------------------------------------------------------------------
 // "X" button: closes whatever is currently loaded in the content area
 // and returns to the welcome screen. It does NOT close the browser tab.
